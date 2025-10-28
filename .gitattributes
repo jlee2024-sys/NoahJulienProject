@@ -1,2 +1,15 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import scipy.stats as stats
+
+filepath = '/Users/julienlee/Data/ev228_data'
+filename = 'NAS-eDNA-Download.csv'
+
+df = pd.read_csv(filename)
+
+print(df)
