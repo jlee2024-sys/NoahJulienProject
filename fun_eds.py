@@ -1,9 +1,6 @@
-import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
-import scipy.stats as stats
 
-def import_get_var(path, name, var_name):
+def import_get_var(path_name, var_name):
     '''Imports a data file and returns the data from one variable in the data.
 
     Arguments:
@@ -16,7 +13,7 @@ def import_get_var(path, name, var_name):
     var_data -- the data we want to get out of the dataset;
         the points in the variable var_name.
     '''
-    df = pd.read_csv(path + name)
+    df = pd.read_csv(path_name)
     var_data = df[var_name]
     return var_data
 
