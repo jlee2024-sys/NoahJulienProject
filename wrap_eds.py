@@ -9,6 +9,12 @@ from mpl_toolkits.basemap import Basemap
 
 lat = fun_eds.import_get_var('/Users/julienlee/Documents/ev228_data/', 'NAS-Specimen-Download.csv', 'Latitude')
 lon = fun_eds.import_get_var('/Users/julienlee/Documents/ev228_data/', 'NAS-Specimen-Download.csv', 'Longitude')
+year = fun_eds.import_get_var('/Users/julienlee/Documents/ev228_data/', 'NAS-Specimen-Download.csv', 'Year')
+
+
+#for each value in lat:
+#    if(lat[year < 1990]):
+        
 
 min_lat = min(lat)
 min_lon = min(lon)
@@ -26,13 +32,16 @@ m.drawcoastlines()
 m.drawrivers(color='#123476')
 m.fillcontinents(color='#98cd9a',lake_color='#4c80d5')
 # draw parallels and meridians.
-m.drawparallels(np.arange(-90.,91.,30.))
-m.drawmeridians(np.arange(-180.,181.,60.))
+m.drawparallels(np.arange(-90.,91.,5.), labels = [True, False, False, False], fontsize = 10, linewidth = 0.01)
+m.drawmeridians(np.arange(-180.,181.,5.), labels = [False, False, False, True], fontsize = 10, linewidth = 0.01)
 m.drawmapboundary(fill_color='#4c80d5')
-m.scatter(lon, lat, s=35, color='#831d1d', marker='x', latlon=True)
+m.scatter(lon, lat, s=35, c=year, marker='x', cmap = 'copper', latlon=True)
+plt.colorbar(label="Year")
 plt.title("Locations of Zebra Mussel Observations, 1986 to 2025")
 plt.show()
 
 '''year = fun_eds.import_get_var('/Users/julienlee/Documents/ev228_data/', 'NAS-Specimen-Download.csv', 'Year')
 print(min(year))
 print(max(year))'''
+
+#c='#831d1d',
